@@ -1,0 +1,44 @@
+type Publisher {
+    id: Int!
+    name: String!
+    address: String!
+    books: [Book!]!
+}
+
+input InputPublisher {
+    name: String!
+    address: String!
+}
+
+type Book {
+    id: Int!
+    title: String!
+    isbn: String!
+    publisher: Publisher!
+    author: Author!
+}
+
+type Author {
+    id: Int!
+    firstName: String!
+    lastName: String!
+    books: [Book!]!
+}
+
+type Query {
+    books: [Book!]!
+    book(id: Int!): Book
+    authors: [Author!]!
+    author(id: Int!): Author
+    publishers: [Publisher!]!
+    publisher(id: Int!): Publisher
+    booksByAuthorName(namePart: String!): [Book!]!
+    booksByName(namePart: String!): [Book!]!
+}
+
+type Mutation {
+    createAuthor(firstName: String!, lastName: String!): Author!
+    createPublisher(name: String!, address: String!): Publisher!
+    createPublisherWithInput(publisher: InputPublisher!): Publisher!
+    createBook(title: String!, isbn: String!, publisher: String!, author:String!): Book!
+}

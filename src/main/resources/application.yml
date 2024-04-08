@@ -1,0 +1,16 @@
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: create
+    show-sql: true
+
+
+  datasource:
+    url: jdbc:h2:mem:demobooksmanager?options=DB_CLOSE_DELAY=-1;IGNORECASE=TRUE
+    username:
+    password:
+
+
+graphql:
+  graphiql:
+    enabled: true
